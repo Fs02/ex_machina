@@ -35,6 +35,9 @@ defmodule ExMachina.Ecto do
           ExMachina.Ecto.string_params_with_assocs(__MODULE__, factory_name, attrs)
         end
 
+        defdelegate to_params(record), to: ExMachina.Ecto
+        defdelegate to_string_params(record), to: ExMachina.Ecto
+
         def fields_for(factory_name, attrs \\ %{}) do
           raise "fields_for/2 has been renamed to params_for/2."
         end
